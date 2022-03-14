@@ -35,20 +35,30 @@
             this.square_chb = new System.Windows.Forms.CheckBox();
             this.root_chb = new System.Windows.Forms.CheckBox();
             this.inverse_chb = new System.Windows.Forms.CheckBox();
-            this.calc_bt = new System.Windows.Forms.Button();
+            this.calcSingle_bt = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.selected_op_lb = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.applyAppearanceChanges_bt = new System.Windows.Forms.Button();
+            this.changeBgColor_chb = new System.Windows.Forms.CheckBox();
+            this.changeFontColor_chb = new System.Windows.Forms.CheckBox();
+            this.changeFontStyle_chb = new System.Windows.Forms.CheckBox();
+            this.calcArray_bt = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // num_tb
             // 
+            this.num_tb.ForeColor = System.Drawing.SystemColors.WindowText;
             this.num_tb.Location = new System.Drawing.Point(15, 30);
             this.num_tb.Margin = new System.Windows.Forms.Padding(4);
             this.num_tb.Name = "num_tb";
-            this.num_tb.Size = new System.Drawing.Size(85, 23);
+            this.num_tb.Size = new System.Drawing.Size(108, 23);
             this.num_tb.TabIndex = 0;
+            this.num_tb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.onlyNumbersValidation);
             // 
             // label1
             // 
@@ -70,10 +80,11 @@
             // 
             // res_tb
             // 
+            this.res_tb.ForeColor = System.Drawing.SystemColors.WindowText;
             this.res_tb.Location = new System.Drawing.Point(138, 30);
             this.res_tb.Margin = new System.Windows.Forms.Padding(4);
             this.res_tb.Name = "res_tb";
-            this.res_tb.Size = new System.Drawing.Size(85, 23);
+            this.res_tb.Size = new System.Drawing.Size(108, 23);
             this.res_tb.TabIndex = 4;
             // 
             // square_chb
@@ -85,6 +96,7 @@
             this.square_chb.TabIndex = 5;
             this.square_chb.Text = "square";
             this.square_chb.UseVisualStyleBackColor = true;
+            this.square_chb.CheckedChanged += new System.EventHandler(this.Chb_CheckedChanged);
             // 
             // root_chb
             // 
@@ -95,6 +107,7 @@
             this.root_chb.TabIndex = 6;
             this.root_chb.Text = "root";
             this.root_chb.UseVisualStyleBackColor = true;
+            this.root_chb.CheckedChanged += new System.EventHandler(this.Chb_CheckedChanged);
             // 
             // inverse_chb
             // 
@@ -105,16 +118,17 @@
             this.inverse_chb.TabIndex = 7;
             this.inverse_chb.Text = "inverse";
             this.inverse_chb.UseVisualStyleBackColor = true;
+            this.inverse_chb.CheckedChanged += new System.EventHandler(this.Chb_CheckedChanged);
             // 
-            // calc_bt
+            // calcSingle_bt
             // 
-            this.calc_bt.Location = new System.Drawing.Point(72, 60);
-            this.calc_bt.Name = "calc_bt";
-            this.calc_bt.Size = new System.Drawing.Size(94, 27);
-            this.calc_bt.TabIndex = 8;
-            this.calc_bt.Text = "Calculate";
-            this.calc_bt.UseVisualStyleBackColor = true;
-            this.calc_bt.Click += new System.EventHandler(this.calc_bt_Click);
+            this.calcSingle_bt.Location = new System.Drawing.Point(15, 60);
+            this.calcSingle_bt.Name = "calcSingle_bt";
+            this.calcSingle_bt.Size = new System.Drawing.Size(94, 27);
+            this.calcSingle_bt.TabIndex = 8;
+            this.calcSingle_bt.Text = "Calc: single";
+            this.calcSingle_bt.UseVisualStyleBackColor = true;
+            this.calcSingle_bt.Click += new System.EventHandler(this.calcSingle_bt_Click);
             // 
             // label3
             // 
@@ -135,7 +149,7 @@
             this.groupBox1.Size = new System.Drawing.Size(120, 104);
             this.groupBox1.TabIndex = 11;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "arithmetic ops";
+            this.groupBox1.Text = "arithmetic op";
             // 
             // selected_op_lb
             // 
@@ -145,15 +159,91 @@
             this.selected_op_lb.Size = new System.Drawing.Size(0, 17);
             this.selected_op_lb.TabIndex = 12;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.Silver;
+            this.label5.Location = new System.Drawing.Point(12, 119);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(359, 17);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "———————————————————————————\r\n";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.applyAppearanceChanges_bt);
+            this.groupBox2.Controls.Add(this.changeBgColor_chb);
+            this.groupBox2.Controls.Add(this.changeFontColor_chb);
+            this.groupBox2.Controls.Add(this.changeFontStyle_chb);
+            this.groupBox2.Location = new System.Drawing.Point(15, 139);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(356, 104);
+            this.groupBox2.TabIndex = 12;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "appearance mod";
+            // 
+            // applyAppearanceChanges_bt
+            // 
+            this.applyAppearanceChanges_bt.Location = new System.Drawing.Point(214, 45);
+            this.applyAppearanceChanges_bt.Name = "applyAppearanceChanges_bt";
+            this.applyAppearanceChanges_bt.Size = new System.Drawing.Size(94, 27);
+            this.applyAppearanceChanges_bt.TabIndex = 8;
+            this.applyAppearanceChanges_bt.Text = "Apply";
+            this.applyAppearanceChanges_bt.UseVisualStyleBackColor = true;
+            this.applyAppearanceChanges_bt.Click += new System.EventHandler(this.applyAppearanceChanges_bt_Click);
+            // 
+            // changeBgColor_chb
+            // 
+            this.changeBgColor_chb.AutoSize = true;
+            this.changeBgColor_chb.Location = new System.Drawing.Point(16, 22);
+            this.changeBgColor_chb.Name = "changeBgColor_chb";
+            this.changeBgColor_chb.Size = new System.Drawing.Size(136, 21);
+            this.changeBgColor_chb.TabIndex = 5;
+            this.changeBgColor_chb.Text = "change bg color";
+            this.changeBgColor_chb.UseVisualStyleBackColor = true;
+            // 
+            // changeFontColor_chb
+            // 
+            this.changeFontColor_chb.AutoSize = true;
+            this.changeFontColor_chb.Location = new System.Drawing.Point(16, 49);
+            this.changeFontColor_chb.Name = "changeFontColor_chb";
+            this.changeFontColor_chb.Size = new System.Drawing.Size(144, 21);
+            this.changeFontColor_chb.TabIndex = 6;
+            this.changeFontColor_chb.Text = "change font color";
+            this.changeFontColor_chb.UseVisualStyleBackColor = true;
+            // 
+            // changeFontStyle_chb
+            // 
+            this.changeFontStyle_chb.AutoSize = true;
+            this.changeFontStyle_chb.Location = new System.Drawing.Point(16, 76);
+            this.changeFontStyle_chb.Name = "changeFontStyle_chb";
+            this.changeFontStyle_chb.Size = new System.Drawing.Size(138, 21);
+            this.changeFontStyle_chb.TabIndex = 7;
+            this.changeFontStyle_chb.Text = "change font style";
+            this.changeFontStyle_chb.UseVisualStyleBackColor = true;
+            // 
+            // calcArray_bt
+            // 
+            this.calcArray_bt.Location = new System.Drawing.Point(138, 60);
+            this.calcArray_bt.Name = "calcArray_bt";
+            this.calcArray_bt.Size = new System.Drawing.Size(94, 27);
+            this.calcArray_bt.TabIndex = 15;
+            this.calcArray_bt.Text = "Calc: array";
+            this.calcArray_bt.UseVisualStyleBackColor = true;
+            this.calcArray_bt.Click += new System.EventHandler(this.calcArray_bt_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(385, 300);
+            this.ClientSize = new System.Drawing.Size(385, 256);
+            this.Controls.Add(this.calcArray_bt);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.selected_op_lb);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.calc_bt);
+            this.Controls.Add(this.calcSingle_bt);
             this.Controls.Add(this.res_tb);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -164,6 +254,8 @@
             this.Text = "Lab 2";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,10 +270,17 @@
         private System.Windows.Forms.CheckBox square_chb;
         private System.Windows.Forms.CheckBox root_chb;
         private System.Windows.Forms.CheckBox inverse_chb;
-        private System.Windows.Forms.Button calc_bt;
+        private System.Windows.Forms.Button calcSingle_bt;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label selected_op_lb;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button applyAppearanceChanges_bt;
+        private System.Windows.Forms.CheckBox changeBgColor_chb;
+        private System.Windows.Forms.CheckBox changeFontColor_chb;
+        private System.Windows.Forms.CheckBox changeFontStyle_chb;
+        private System.Windows.Forms.Button calcArray_bt;
     }
 }
 
