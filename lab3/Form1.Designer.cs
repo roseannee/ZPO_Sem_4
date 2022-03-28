@@ -31,6 +31,7 @@
             this.people_lbx = new System.Windows.Forms.ListBox();
             this.addPerson_btn = new System.Windows.Forms.Button();
             this.addMany_btn = new System.Windows.Forms.Button();
+            this.editSelected_btn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // people_lbx
@@ -38,9 +39,8 @@
             this.people_lbx.FormattingEnabled = true;
             this.people_lbx.ItemHeight = 17;
             this.people_lbx.Location = new System.Drawing.Point(13, 13);
-            this.people_lbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.people_lbx.Margin = new System.Windows.Forms.Padding(4);
             this.people_lbx.Name = "people_lbx";
-            this.people_lbx.SelectionMode = System.Windows.Forms.SelectionMode.MultiSimple;
             this.people_lbx.Size = new System.Drawing.Size(427, 225);
             this.people_lbx.TabIndex = 0;
             // 
@@ -64,16 +64,27 @@
             this.addMany_btn.UseVisualStyleBackColor = true;
             this.addMany_btn.Click += new System.EventHandler(this.addMany_btn_Click);
             // 
+            // editSelected_btn
+            // 
+            this.editSelected_btn.Location = new System.Drawing.Point(221, 249);
+            this.editSelected_btn.Name = "editSelected_btn";
+            this.editSelected_btn.Size = new System.Drawing.Size(98, 34);
+            this.editSelected_btn.TabIndex = 3;
+            this.editSelected_btn.Text = "Edit selected";
+            this.editSelected_btn.UseVisualStyleBackColor = true;
+            this.editSelected_btn.Click += new System.EventHandler(this.editSelected_btn_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(454, 295);
+            this.Controls.Add(this.editSelected_btn);
             this.Controls.Add(this.addMany_btn);
             this.Controls.Add(this.addPerson_btn);
             this.Controls.Add(this.people_lbx);
             this.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Lab 3";
             this.ResumeLayout(false);
@@ -85,6 +96,7 @@
         private System.Windows.Forms.ListBox people_lbx;
         private System.Windows.Forms.Button addPerson_btn;
         private System.Windows.Forms.Button addMany_btn;
+        private System.Windows.Forms.Button editSelected_btn;
     }
 }
 

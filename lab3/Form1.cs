@@ -12,21 +12,44 @@ namespace lab3
 
         private void addPerson_btn_Click(object sender, EventArgs e)
         {
-            AddNewPerson addPerson = new AddNewPerson();
+            AddNewPersonForm addPerson = new AddNewPersonForm(false, people_lbx);
 
             var result = addPerson.ShowDialog();
-
             if (result == DialogResult.OK)
             {
-                people_lbx.Items.Add(AddNewPerson.newPerson);
+                people_lbx.Items.Add(AddNewPersonForm.newPerson);
             }
         }
 
         private void addMany_btn_Click(object sender, EventArgs e)
         {
-            AddNewPerson addPeson = new AddNewPerson();
+            AddManyPeopleForm addPeople = new AddManyPeopleForm();
+            addPeople.PersonEvent += PersonEvent_Add;
 
-            addPeson.Show();
+            addPeople.Show();
+        }
+
+        private void PersonEvent_Add(object sender, Person p)
+        {
+            people_lbx.Items.Add(p.ToString());
+        }
+
+        private void editSelected_btn_Click(object sender, EventArgs e)
+        {
+            if (people_lbx.SelectedItem != null)
+            {
+                AddNewPersonForm addPerson = new AddNewPersonForm(true, people_lbx);
+
+                var result = addPerson.ShowDialog();
+                if (result == DialogResult.OK)
+                {
+                    people_lbx.Items[people_lbx.SelectedIndex] = AddNewPersonForm.newPerson;
+                }
+            }
+            else
+            {
+                MessageBox.Show("No person selected!");
+            }
         }
     }
 }
