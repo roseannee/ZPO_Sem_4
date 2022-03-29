@@ -5,16 +5,12 @@ namespace lab4
 {
     static class StringExtensions
     {
-        public static string RegisterChange(this string str) //не до конца норм
+        public static string RegisterChange(this string str)
         {
             string result = "";
 
             for (int i = 0; i < str.Length; i++)
             {
-                if (str[i] == ' ')
-                {
-                    result += str.Substring(i, 1);
-                }
                 if (i % 2 == 0)
                 {
                     result += str.Substring(i, 1).ToUpper();
@@ -30,7 +26,7 @@ namespace lab4
 
         public static string DeleteVowels(this string str)
         {
-            string vowels = "aeiouy";
+            string vowels = "aeiouyAEIOUY";
             str = new string(str.Where(c => !vowels.Contains(c)).ToArray());
 
             return str;
@@ -67,9 +63,6 @@ namespace lab4
         public static IEnumerable<T> Mode<T>(this IEnumerable<T> input)
         {
             var dict = input.ToLookup(x => x);
-
-            /*if (dict.Count == 0)
-                return Enumerable.Empty<T>();*/
 
             var maxCount = dict.Max(x => x.Count());
 

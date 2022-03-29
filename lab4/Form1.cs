@@ -35,6 +35,16 @@ namespace lab4
             result_txb.Text = power(double.Parse(xn_x_txb.Text), double.Parse(xn_n_txb.Text)).ToString();
         }
 
+        Func<double, double, double> Power()
+        {
+            return (double x, double n) =>
+            {
+                double res = Math.Pow(x, n);
+
+                return res;
+            };
+        }
+
         private void createString_btn_Click(object sender, EventArgs e)
         {
             Func<char, int, string> createString = (char ch, int n) =>
@@ -52,17 +62,7 @@ namespace lab4
             result_txb.Text = createString(char.Parse(chn_char_txb.Text), int.Parse(chn_n_txb.Text));
         }
 
-        Func<double, double, double> Power()
-        {
-            return (double x, double n) =>
-            {
-                double res = Math.Pow(x, n);
-
-                return res;
-            };
-        }
-
-        private void sort_asc_btn_Click(object sender, EventArgs e)
+        private void sort_asc_btn_Click(object sender, EventArgs e) // собственная сортировка
         {
             int[] array = GetArray();
 
@@ -71,7 +71,7 @@ namespace lab4
             PrintArray(array);
         }
 
-        private void sort_desc_btn_Click(object sender, EventArgs e)
+        private void sort_desc_btn_Click(object sender, EventArgs e) // собственная сортировка
         {
             int[] array = GetArray();
 
@@ -80,7 +80,7 @@ namespace lab4
             PrintArray(array);
         }
 
-        private void sort_delegate_btn_Click(object sender, EventArgs e)
+        private void sort_delegate_btn_Click(object sender, EventArgs e)  // ? собственная сортировка
         {
             int[] array = GetArray();
 

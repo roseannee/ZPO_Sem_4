@@ -7,7 +7,7 @@ namespace lab2
     public partial class Form1 : Form
     {
         Operation operation;
-        Appearance[] newAppearance = new Appearance[3];
+        Appearance newAppearance;
         ResetAppearance[] resetAppearance = new ResetAppearance[3];
 
         public Form1()
@@ -71,31 +71,46 @@ namespace lab2
 
         private void applyAppearanceChanges_bt_Click(object sender, EventArgs e)
         {
-            FillAppearanceDelegate();
+            FillResetAppearanceDelegate();
 
             if (changeBgColor_chb.Checked)
             {
-                newAppearance[0]();
+                newAppearance += ChangeBgColor;
             }
             else
             {
-                resetAppearance[0]();
+                newAppearance -= ChangeBgColor;
             }
 
             if (changeFontColor_chb.Checked)
             {
-                newAppearance[1]();
+                newAppearance += ChangeFontColor;
             }
             else
             {
-                resetAppearance[1]();
+                newAppearance -= ChangeFontColor;
             }
 
             if (changeFontStyle_chb.Checked)
             {
-                newAppearance[2]();
+                newAppearance += ChangeFontStyle;
             }
             else
+            {
+                newAppearance -= ChangeFontStyle;
+            }
+
+            newAppearance?.Invoke();
+
+            if (!changeBgColor_chb.Checked)
+            {
+                resetAppearance[0]();
+            }
+            if (!changeFontColor_chb.Checked)
+            {
+                resetAppearance[1]();
+            }
+            if (!changeFontStyle_chb.Checked)
             {
                 resetAppearance[2]();
             }
@@ -179,12 +194,8 @@ namespace lab2
             res_tb.Font = new Font("Century Gothic", 9.75f, FontStyle.Regular);
         }
 
-        private void FillAppearanceDelegate()
+        private void FillResetAppearanceDelegate()
         {
-            newAppearance[0] = ChangeBgColor;
-            newAppearance[1] = ChangeFontColor;
-            newAppearance[2] = ChangeFontStyle;
-
             resetAppearance[0] = ResetBgColor;
             resetAppearance[1] = ResetFontColor;
             resetAppearance[2] = ResetFontStyle;

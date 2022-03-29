@@ -20,6 +20,5 @@ namespace lab3
                 e.Handled = true;
             }
         }
-
     }
 }
