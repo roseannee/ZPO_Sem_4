@@ -1,0 +1,92 @@
+﻿<Window x:Class="lab6.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:lab6"
+        mc:Ignorable="d"
+        Title="Lab 6" Height="364" Width="583" FontFamily="Century Gothic" SizeToContent="Height">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.RowSpan="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <GroupBox Header="filtering">
+                    <StackPanel>
+                        <Button Content="Button 1"/>
+                        <Button Content="Button 2" Margin="0,5,0,0"/>
+                        <Button Content="Button 3" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Header="sorting" Margin="0,5,0,0" Grid.Row="1">
+                    <StackPanel>
+                        <Button Content="ascending"/>
+                        <Button Content="descending" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Header="transforming" Margin="0,5,0,0" Grid.Row="2" >
+                    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Button Content="Button 1"/>
+                        <Button Content="Button 2" Margin="0,5,0,0"/>
+                        <Button Content="Button 3" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.RowSpan="2" Grid.Column="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <GroupBox Header="if contains">
+                    <StackPanel>
+                        <Button Content="Button 1"/>
+                        <Button Content="Button 2" Margin="0,5,0,0"/>
+                        <Button Content="Button 3" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Header="aggregating" Margin="0,5,0,0" Grid.Row="1">
+                    <StackPanel>
+                        <Button Content="Button 1"/>
+                        <Button Content="Button 2" Margin="0,5,0,0"/>
+                        <Button Content="Button 3" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </GroupBox>
+
+                <GroupBox Header="persons collection" Margin="0,5,0,0" Grid.Row="2" >
+                    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                        <Button Content="Button 1"/>
+                        <Button Content="Button 2" Margin="0,5,0,0"/>
+                        <Button Content="Button 3" Margin="0,5,0,0"/>
+                        <Button Content="Button 4" Margin="0,5,0,0"/>
+                        <Button Content="Button 5" Margin="0,5,0,0"/>
+                    </StackPanel>
+                </GroupBox>
+            </Grid>
+        </StackPanel>
+
+        <RichTextBox Grid.Column="1" Margin="5,5,5,5"/>
+        <RichTextBox Grid.Column="1" Grid.Row="1" Margin="5,5,5,5"/>
+    </Grid>
+</Window>
