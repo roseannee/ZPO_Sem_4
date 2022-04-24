@@ -24,5 +24,79 @@ namespace lab6
         {
             InitializeComponent();
         }
+
+        private void LengthAbove3_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OutputNewString(GetLinesFromInput.LengthAbove3());
+        }
+        private void LineIsSentence_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OutputNewString(GetLinesFromInput.LineIsSentence());
+        }
+        private void ContainsSpecialCharacters_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OutputNewString(GetLinesFromInput.ContainsSpecialCharacters());
+        }
+
+        private void SortAsc_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OutputNewString(GetLinesFromInput.SortAsc());
+        }
+        private void SortDesc_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OutputNewString(GetLinesFromInput.SortDesc());
+        }
+
+        private void ToLowercase_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OutputNewString(GetLinesFromInput.ToLowercase());
+        }
+        private void ToUppercase_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OutputNewString(GetLinesFromInput.ToUppercase());
+        }
+        private void Replace_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OutputNewString(GetLinesFromInput.Replace());
+        }
+
+        private void IsLengthAbove3_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OutputNewString(GetLinesFromInput.IsLengthAbove3().BoolToStringArray());
+        }
+        private void IsASentence_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OutputNewString(GetLinesFromInput.IsASentence().BoolToStringArray());
+        }
+        private void HasSpecialCharacters_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void GetFirstWord_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OutputNewString(GetLinesFromInput.GetFirstWord());
+        }
+        private void GetLastWord_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OutputNewString(GetLinesFromInput.GetLastWord());
+        }
+        private void CountWords_btn_Click(object sender, RoutedEventArgs e)
+        {
+            OutputNewString(GetLinesFromInput.CountWords().IntToStringArray());
+        }
+
+        private string[] GetLinesFromInput
+        {
+            get
+            {
+                return Input_txb.Text.Split(new[] { '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+            }
+        }
+
+        private void OutputNewString(object[] elements)
+        {
+            Output_txb.Text = string.Join("\n", elements);
+        }
     }
 }

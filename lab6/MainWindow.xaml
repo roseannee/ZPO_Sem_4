@@ -5,10 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab6"
         mc:Ignorable="d"
-        Title="Lab 6" Height="364" Width="583" FontFamily="Century Gothic" SizeToContent="Height">
+        Title="Lab 6" Height="380" Width="445">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
@@ -17,76 +16,71 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.RowSpan="2">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+        <TextBox Name="Input_txb" Margin="5,5,5,5" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Hidden" AcceptsReturn="True"/>
+        <TextBox Name="Output_txb" Grid.Row="1" Margin="5,5,5,5" TextWrapping="Wrap" AcceptsReturn="True"/>
 
-                <GroupBox Header="filtering">
-                    <StackPanel>
-                        <Button Content="Button 1"/>
-                        <Button Content="Button 2" Margin="0,5,0,0"/>
-                        <Button Content="Button 3" Margin="0,5,0,0"/>
-                    </StackPanel>
-                </GroupBox>
+        <ScrollViewer Grid.Column="1" Grid.RowSpan="2">
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
 
-                <GroupBox Header="sorting" Margin="0,5,0,0" Grid.Row="1">
-                    <StackPanel>
-                        <Button Content="ascending"/>
-                        <Button Content="descending" Margin="0,5,0,0"/>
-                    </StackPanel>
-                </GroupBox>
+                    <GroupBox Header="filtering | show lines where">
+                        <StackPanel>
+                            <Button Name="LengthAbove3_btn" Content="length >= 3" Click="LengthAbove3_btn_Click"/>
+                            <Button Name="LineIsSentence_btn" Content="line is a sentence" Click="LineIsSentence_btn_Click" Margin="0,5,0,0"/>
+                            <Button Name="ContainsSpecialCharacters_btn" Content="line contains special charcters" Click="ContainsSpecialCharacters_btn_Click" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </GroupBox>
 
-                <GroupBox Header="transforming" Margin="0,5,0,0" Grid.Row="2" >
-                    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <Button Content="Button 1"/>
-                        <Button Content="Button 2" Margin="0,5,0,0"/>
-                        <Button Content="Button 3" Margin="0,5,0,0"/>
-                    </StackPanel>
-                </GroupBox>
-            </Grid>
-        </StackPanel>
+                    <GroupBox Grid.Row="1" Header="sorting" Margin="0,5,0,0">
+                        <StackPanel>
+                            <Button Name="SortAsc_btn" Content="ascending" Click="SortAsc_btn_Click"/>
+                            <Button Name="SortDesc_btn" Content="descending" Click="SortDesc_btn_Click" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </GroupBox>
 
-        <StackPanel Grid.RowSpan="2" Grid.Column="2">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="*"/>
-                </Grid.RowDefinitions>
+                    <GroupBox Grid.Row="2" Header="transforming" Margin="0,5,0,0">
+                        <StackPanel>
+                            <Button Name="ToLowercase_btn" Content="to lowercase" Click="ToLowercase_btn_Click"/>
+                            <Button Name="ToUppercase_btn" Content="to uppercase" Click="ToUppercase_btn_Click" Margin="0,5,0,0"/>
+                            <Button Name="Replace_btn" Content="Button 3" Click="Replace_btn_Click" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </GroupBox>
 
-                <GroupBox Header="if contains">
-                    <StackPanel>
-                        <Button Content="Button 1"/>
-                        <Button Content="Button 2" Margin="0,5,0,0"/>
-                        <Button Content="Button 3" Margin="0,5,0,0"/>
-                    </StackPanel>
-                </GroupBox>
+                    <GroupBox Grid.Row="3" Header="checking | does the line" Margin="0,5,0,0">
+                        <StackPanel>
+                            <Button Name="IsLengthAbove3_btn" Content="have a length >= 3?" Click="IsLengthAbove3_btn_Click"/>
+                            <Button Name="IsASentence_btn" Content="is a sentence?" Click="IsASentence_btn_Click" Margin="0,5,0,0"/>
+                            <Button Name="HasSpecialCharacters_btn" Content="contain special characters?" Click="HasSpecialCharacters_btn_Click" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </GroupBox>
 
-                <GroupBox Header="aggregating" Margin="0,5,0,0" Grid.Row="1">
-                    <StackPanel>
-                        <Button Content="Button 1"/>
-                        <Button Content="Button 2" Margin="0,5,0,0"/>
-                        <Button Content="Button 3" Margin="0,5,0,0"/>
-                    </StackPanel>
-                </GroupBox>
+                    <GroupBox Grid.Row="4" Header="aggregating" Margin="0,5,0,5">
+                        <StackPanel>
+                            <Button Name="GetFirstWord_btn" Content="get first word" Click="GetFirstWord_btn_Click"/>
+                            <Button Name="GetLastWord_btn" Content="get last word" Click="GetLastWord_btn_Click" Margin="0,5,0,0"/>
+                            <Button Name="CountWords_btn" Content="count words" Click="CountWords_btn_Click" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </GroupBox>
 
-                <GroupBox Header="persons collection" Margin="0,5,0,0" Grid.Row="2" >
-                    <StackPanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                        <Button Content="Button 1"/>
-                        <Button Content="Button 2" Margin="0,5,0,0"/>
-                        <Button Content="Button 3" Margin="0,5,0,0"/>
-                        <Button Content="Button 4" Margin="0,5,0,0"/>
-                        <Button Content="Button 5" Margin="0,5,0,0"/>
-                    </StackPanel>
-                </GroupBox>
-            </Grid>
-        </StackPanel>
-
-        <RichTextBox Grid.Column="1" Margin="5,5,5,5"/>
-        <RichTextBox Grid.Column="1" Grid.Row="1" Margin="5,5,5,5"/>
+                    <!--<GroupBox Grid.Row="5" Header="persons collection" Margin="0,5,0,0">
+                        <StackPanel>
+                            <Button Content="Button 1"/>
+                            <Button Content="Button 2" Margin="0,5,0,0"/>
+                            <Button Content="Button 3" Margin="0,5,0,0"/>
+                            <Button Content="Button 4" Margin="0,5,0,0"/>
+                            <Button Content="Button 5" Margin="0,5,0,0"/>
+                        </StackPanel>
+                    </GroupBox>-->
+                </Grid>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
