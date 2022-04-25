@@ -12,9 +12,10 @@ namespace lab6
         {
             return str.Where(s => char.IsUpper(s[0]) && s.EndsWith(".")).ToArray();
         }
-        public static string[] ContainsSpecialCharacters(this string[] str) // переделать
+        public static string[] ContainsSpecialCharacters(this string[] str)
         {
-            return str.Where(s => char.IsLetterOrDigit(char.Parse(s))).ToArray();
+            char[] specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,".ToCharArray();
+            return str.Where(s => s.IndexOfAny(specialChar) > 0).ToArray();
         }
 
         public static string[] SortAsc(this string[] str)
@@ -34,9 +35,9 @@ namespace lab6
         {
             return str.Select(s => s.ToUpper()).ToArray();
         }
-        public static string[] Replace(this string[] str) // переделать
+        public static string[] ReplaceSpaceByUnderscore(this string[] str)
         {
-            return str.Select(s => s.Replace('o', '0')).ToArray();
+            return str.Select(s => s.Replace(' ', '_')).ToArray();
         }
 
         public static bool[] IsLengthAbove3(this string[] str)
@@ -47,9 +48,10 @@ namespace lab6
         {
             return str.Select(s => char.IsUpper(s[0]) && s.EndsWith(".")).ToArray();
         }
-        public static bool[] HasSpecialCharacters(this string[] str) // переделать
+        public static bool[] HasSpecialCharacters(this string[] str)
         {
-            return str.Select(s => char.IsLetterOrDigit(char.Parse(s))).ToArray();
+            char[] specialChar = @"\|!#$%&/()=?»«@£§€{}.-;'<>_,".ToCharArray();
+            return str.Select(s => s.IndexOfAny(specialChar) > 0).ToArray();
         }
 
         public static string[] GetFirstWord(this string[] str)

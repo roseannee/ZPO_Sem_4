@@ -50,7 +50,7 @@
                         <StackPanel>
                             <Button Name="ToLowercase_btn" Content="to lowercase" Click="ToLowercase_btn_Click"/>
                             <Button Name="ToUppercase_btn" Content="to uppercase" Click="ToUppercase_btn_Click" Margin="0,5,0,0"/>
-                            <Button Name="Replace_btn" Content="Button 3" Click="Replace_btn_Click" Margin="0,5,0,0"/>
+                            <Button Name="ReplaceSpaceByUnderscore_btn" Content="replace space by underscore" Click="ReplaceSpaceByUnderscore_btn_Click" Margin="0,5,0,0"/>
                         </StackPanel>
                     </GroupBox>
 

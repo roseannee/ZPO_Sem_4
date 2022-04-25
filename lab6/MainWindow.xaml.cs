@@ -55,9 +55,9 @@ namespace lab6
         {
             OutputNewString(GetLinesFromInput.ToUppercase());
         }
-        private void Replace_btn_Click(object sender, RoutedEventArgs e)
+        private void ReplaceSpaceByUnderscore_btn_Click(object sender, RoutedEventArgs e)
         {
-            OutputNewString(GetLinesFromInput.Replace());
+            OutputNewString(GetLinesFromInput.ReplaceSpaceByUnderscore());
         }
 
         private void IsLengthAbove3_btn_Click(object sender, RoutedEventArgs e)
@@ -70,7 +70,7 @@ namespace lab6
         }
         private void HasSpecialCharacters_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            OutputNewString(GetLinesFromInput.HasSpecialCharacters().BoolToStringArray());
         }
 
         private void GetFirstWord_btn_Click(object sender, RoutedEventArgs e)
