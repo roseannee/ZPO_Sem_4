@@ -5,8 +5,66 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:lab7"
         mc:Ignorable="d"
-        Title="Lab 7" Height="450" Width="800">
+        Title="Lab 7" Height="Auto" Width="410" SizeToContent="Height">
+
+    <Window.DataContext>
+        <local:Person/>
+    </Window.DataContext>
+
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="210"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Margin="5,0,2.5,0">
+                <Label Content="Name" Foreground="#FF757070" Margin="0,0,0,0"/>
+                <TextBox x:Name="Name_txb" Text="{Binding ElementName=People_lbx, Path=SelectedItem.Name, UpdateSourceTrigger=PropertyChanged}" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" Margin="0,0,0,0" Height="22"/>
+
+                <Label Content="Surname" Margin="0,10,0,0" Foreground="#FF757070"/>
+                <TextBox x:Name="Surname_txb" Text="{Binding ElementName=People_lbx, Path=SelectedItem.Surname, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center" Height="22"/>
+
+                <Label Content="Age" Margin="0,10,0,0" Foreground="#FF757070"/>
+                <TextBox x:Name="Age_txb" Text="{Binding ElementName=People_lbx, Path=SelectedItem.Age}" VerticalContentAlignment="Center" Height="22"/>
+
+                <Label Content="Country" Margin="0,10,0,0" Foreground="#FF757070"/>
+                <TextBox x:Name="Country_txb" Text="{Binding ElementName=People_lbx, Path=SelectedItem.Country}" VerticalContentAlignment="Center" Height="22"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1" Margin="5,20,2.5,5">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Button x:Name="Add_btn" VerticalAlignment="Bottom" Content="Add new person" Click="Add_btn_Click" Margin="0,0,2.5,2.5"/>
+                    <Button x:Name="Clear_btn" Grid.Column="1" VerticalAlignment="Bottom" Content="Clear boxes" Click="Clear_btn_Click" Margin="2.5,0,0,2.5"/>
+                    <Button x:Name="Remove_btn" Grid.Row="1" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Content="Remove selected" Click="Remove_btn_Click" Margin="0,2.5,0,0"/>
+                </Grid>
+            </StackPanel>
+        </Grid>
         
+        <ListBox x:Name="People_lbx" Grid.Column="1" ItemsSource="{Binding Person}" Margin="2.5,5,5,5">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text=" "/>
+                        <TextBlock Text="{Binding Surname}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Window>

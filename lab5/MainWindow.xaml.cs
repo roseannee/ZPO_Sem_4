@@ -74,8 +74,8 @@ namespace lab5
 
         private void Clear_btn_Click(object sender, RoutedEventArgs e)
         {
-            ClearBoxes();
             Orders_lbx.SelectedIndex = -1;
+            ClearBoxes();
         }
 
         private void Orders_lbx_SelectionChanged(object sender, SelectionChangedEventArgs e)
